@@ -1,5 +1,7 @@
 package edu.esiea.ecommerceapp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +10,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import edu.esiea.ecommerceapp.model.Cart;
+import edu.esiea.ecommerceapp.model.Product;
 
 // LoginActivity.java
 public class CartActivity extends AppCompatActivity {
@@ -28,44 +38,58 @@ public class CartActivity extends AppCompatActivity {
         buttonPay = findViewById(R.id.buttonPay);
 
         String username = "Jean";
-        double total = 15.75;
+
+        List<Product> productList = new ArrayList<>();
+        productList.add(new Product("T-Shirt blanc", 55.0, "Un T-shirt blanc", ""));
+        productList.add(new Product("Anneau en or", 4000.50, "Un anneau en or", ""));
+
+        Cart cart = new Cart(productList);
+
+        cart.calculateTotal();
 
         textCartTitle.setText("Panier de " + username);
-        textCartTotal.setText("Total : " + String.format("%.2f $", total));
+        textCartTotal.setText("Total : " + String.format("%.2f $", cart.getTotal()));
 
         buttonClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //panier.clear();
+
+                popUp("Vider le panier", "Votre panier a bien été vidé.");
+
+                cart.clear();
+                textCartTotal.setText("Total : " + String.format("%.2f $", cart.getTotal()));
             }
         });
 
         buttonPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //bdd
+                String message = "Félicitation ! Vous avez acheté ces articles :";
+                for(Product product : cart.getProductList()) {
+                    message += "\n- " + product.getName();
+                }
+                message += "\nPour un total de " + cart.getTotal() + "$.";
+                popUp("Merci pour votre achat", message);
 
+                cart.clear();
+                textCartTotal.setText("Total : " + String.format("%.2f $", cart.getTotal()));
             }
         });
+    }
 
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Implement login logic here
-                String username = editTextUsername.getText().toString();
-                String password = editTextPassword.getText().toString();
-                if(MainActivity.bdd.login(username,password)){
-                    Log.d("TAG","laptet");
-                    // Create an Intent to start MainActivity
-                    Intent intent = new Intent(CartActivity.this, MainActivity.class);
+    private void popUp(String titlePop, String messagePop) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(titlePop)
+                .setMessage(messagePop)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
 
-                    // Start the activity
-                    startActivity(intent);
-
-                    // Finish the current activity to prevent going back to it
-                    finish();
-                    // Perform authentication (e.g., send data to a server)
-                    // Handle the response accordingly
-                }}
-        });
+        // Affiche la pop-up
+        builder.create().show();
     }
 }
