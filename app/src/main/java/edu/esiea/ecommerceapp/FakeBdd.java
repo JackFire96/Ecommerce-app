@@ -3,8 +3,11 @@ package edu.esiea.ecommerceapp;
 import java.util.HashMap;
 import android.util.Log;
 
+import edu.esiea.ecommerceapp.api.ProductData;
+
 public class FakeBdd {
     HashMap<String,String> bdd;
+    ProductData[] productList;
 
     FakeBdd(){
         this.bdd = new HashMap<>();
