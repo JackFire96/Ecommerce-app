@@ -5,7 +5,8 @@ import com.google.gson.Gson;
 import java.sql.Array;
 
 public class ProductData {
-    String title,description,price,id;
+    String title,description,id;
+    double price;
     String[] images;
 
     public String getTitle() {
@@ -24,11 +25,11 @@ public class ProductData {
         this.description = description;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.esiea.ecommerceapp.adapter.ProductAdapter;
+import edu.esiea.ecommerceapp.api.ProductData;
 import edu.esiea.ecommerceapp.model.Cart;
 import edu.esiea.ecommerceapp.model.Product;
 
@@ -42,6 +43,9 @@ public class CartActivity extends AppCompatActivity {
         String username = "Jean";
 
         List<Product> productList = new ArrayList<>();
+        for(ProductData product :MainActivity.bdd.productList){
+            productList.add(new Product(product.getTitle(),product.getPrice(),product.getDescription(),product.getImages()[0]));
+        }
         productList.add(new Product("T-Shirt blanc", 55.0, "Un T-shirt blanc", ""));
         productList.add(new Product("Anneau en or", 4000.50, "Un anneau en or", ""));
 
