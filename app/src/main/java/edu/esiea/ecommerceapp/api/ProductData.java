@@ -1,10 +1,12 @@
 package edu.esiea.ecommerceapp.api;
 
+import com.google.gson.Gson;
+
 import java.sql.Array;
 
 public class ProductData {
     String title,description,price,id;
-    Array images;
+    String[] images;
 
     public String getTitle() {
         return title;
@@ -38,11 +40,11 @@ public class ProductData {
         this.id = id;
     }
 
-    public Array getImages() {
+    public String[] getImages() {
         return images;
     }
 
-    public void setImages(Array images) {
+    public void setImages(String[] images) {
         this.images = images;
     }
 
