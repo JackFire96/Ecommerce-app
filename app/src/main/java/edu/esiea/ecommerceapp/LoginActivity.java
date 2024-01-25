@@ -40,21 +40,24 @@ public class LoginActivity extends AppCompatActivity {
                 String password = editTextPassword.getText().toString();
                 if(MainActivity.bdd.login(username,password)){
                 // Create an Intent to start MainActivity
-                //Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                Intent intent = new Intent(LoginActivity.this, CartActivity.class);
 
                 // Start the activity
-                //startActivity(intent);
+                //
                     Retrofit retrofit = MyApiClient.create();
-                    retrofit.create(MyApiService.class).getProduct("4").enqueue(new Callback<ProductData>(){
+                    retrofit.create(MyApiService.class).getProducts().enqueue(new Callback<ProductData[]>(){
                         @Override
-                        public void onResponse(Call<ProductData> call, Response<ProductData> response){
+                        public void onResponse(Call<ProductData[]> call, Response<ProductData[]> response){
                             Log.d("la","al23");
-                            editTextUsername.setText(response.body().getDescription());
-                            Log.d("DescriptionApiProduct",response.body().getDescription());
+                            MainActivity.bdd.productList = response.body();
+                            startActivity(intent);
+                            finish();
+                            //editTextUsername.setText(response.body().getDescription());
+                            //Log.d("DescriptionApiProduct",response.body().getDescription());
                         }
 
                         @Override
-                        public void onFailure(Call<ProductData> call, Throwable t){
+                        public void onFailure(Call<ProductData[]> call, Throwable t){
                             Log.d("la","al25");
                             Log.d("error",t.getMessage());
                         }
@@ -62,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
                     Log.d("la","al");
                    // Log.d("MyApiTask", "API Response: " + result);
                 // Finish the current activity to prevent going back to it
-                //finish();
+
                 // Perform authentication (e.g., send data to a server)
                 // Handle the response accordingly
             }}
