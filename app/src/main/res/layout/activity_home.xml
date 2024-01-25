@@ -6,83 +6,54 @@
     tools:context=".MainActivity">
 
     <!-- Barre d'action -->
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
 
     <!-- Bannière promotionnelle -->
-    <ImageView
-        android:id="@+id/bannerImageView"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher_background" />
 
     <!-- Catégories de produits -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/categoriesRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/bannerImageView"
-        android:padding="16dp"
-        android:clipToPadding="false" />
 
     <!-- Produits en vedette -->
+
+    <!-- Pied de page avec des liens rapides -->
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="114dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="147dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="149dp"
+        android:text="Tout les produits" />
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="13dp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/featuredProductsRecyclerView"
         android:layout_width="match_parent"
+        android:layout_height="438dp"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="76dp"
+        android:clipToPadding="false"
+        android:padding="16dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="161dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/categoriesRecyclerView"
-        android:padding="16dp"
-        android:clipToPadding="false" />
+        android:layout_below="@+id/featuredProductsRecyclerView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="125dp"
+        android:text="Voir le Panier" />
 
-    <!-- Pied de page avec des liens rapides -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        android:background="?android:attr/windowBackground">
-
-        <TextView
-            android:id="@+id/aboutUsTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="À propos de nous"
-            android:textColor="@android:color/black"
-            android:textSize="14sp"
-            android:gravity="center"
-            android:clickable="true"
-            android:onClick="onAboutUsClick" />
-
-        <TextView
-            android:id="@+id/contactUsTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Contactez-nous"
-            android:textColor="@android:color/black"
-            android:textSize="14sp"
-            android:gravity="center"
-            android:clickable="true"
-            android:onClick="onContactUsClick" />
-
-        <TextView
-            android:id="@+id/helpTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Aide"
-            android:textColor="@android:color/black"
-            android:textSize="14sp"
-            android:gravity="center"
-            android:clickable="true"
-            android:onClick="onHelpClick" />
-    </LinearLayout>
 </RelativeLayout>

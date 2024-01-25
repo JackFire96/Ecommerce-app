@@ -51,13 +51,13 @@
 
             <Button
                 android:id="@+id/bt_order"
-                android:layout_width="162dp"
+                android:layout_width="216dp"
                 android:layout_height="58dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="32dp"
                 android:background="#0F9782"
                 android:backgroundTint="#E3EBF6"
-                android:text="Commander"
+                android:text="Ajouter au panier"
                 app:backgroundTintMode="add"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
