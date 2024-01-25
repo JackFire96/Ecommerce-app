@@ -8,11 +8,12 @@ public class FakeBdd {
 
     FakeBdd(){
         this.bdd = new HashMap<>();
+        this.bdd.put("admin","pass");
+        this.bdd.put("client","pass");
     }
     public boolean login(String username, String password){
         Log.d("tag",password+" " + this.bdd.get(username));
-        Log.d("tage",(this.bdd.get(username) == password));
-        return this.bdd.get(username) == password;
+        return this.bdd.get(username).equals( password);
     }
     public void register(String username, String password){
         this.bdd.put(username,password);

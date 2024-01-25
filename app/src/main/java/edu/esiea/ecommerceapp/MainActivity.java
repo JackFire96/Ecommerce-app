@@ -14,6 +14,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.bdd = new FakeBdd();
+
         setContentView(R.layout.activity_main);
 
         buttonLogin = findViewById(R.id.bt_login);

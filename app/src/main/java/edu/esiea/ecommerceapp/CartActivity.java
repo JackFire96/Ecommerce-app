@@ -47,7 +47,7 @@ public class CartActivity extends AppCompatActivity {
             }
         });
 
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
+       /* buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Implement login logic here
@@ -66,6 +66,6 @@ public class CartActivity extends AppCompatActivity {
                     // Perform authentication (e.g., send data to a server)
                     // Handle the response accordingly
                 }}
-        });
+        });*/
     }
 }
