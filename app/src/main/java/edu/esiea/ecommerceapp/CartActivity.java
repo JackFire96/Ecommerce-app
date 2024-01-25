@@ -41,12 +41,12 @@ public class CartActivity extends AppCompatActivity {
         buttonClear = findViewById(R.id.buttonClear);
         buttonPay = findViewById(R.id.buttonPay);
 
-        String username = "Jean";
+        String username = MainActivity.bdd.getUsernameOfLoggedUser();
 
         List<Product> productList = new ArrayList<>();
-        productList = Arrays.stream(MainActivity.bdd.productCart).toList();
-        productList.add(new Product("T-Shirt blanc", 55.0, "Un T-shirt blanc", ""));
-        productList.add(new Product("Anneau en or", 4000.50, "Un anneau en or", ""));
+        productList = MainActivity.bdd.getProductCart();
+        //productList.add(new Product("T-Shirt blanc", 55.0, "Un T-shirt blanc", ""));
+        //productList.add(new Product("Anneau en or", 4000.50, "Un anneau en or", ""));
 
         cart = new Cart(productList);
 

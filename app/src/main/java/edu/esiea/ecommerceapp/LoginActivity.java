@@ -49,7 +49,8 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<ProductData[]> call, Response<ProductData[]> response){
                             Log.d("la","al23");
-                            MainActivity.bdd.productList = response.body();
+                            MainActivity.bdd.setProductList( response.body());
+                            MainActivity.bdd.setUsernameOfLoggedUser(username);
                             startActivity(intent);
                             finish();
                             //editTextUsername.setText(response.body().getDescription());
