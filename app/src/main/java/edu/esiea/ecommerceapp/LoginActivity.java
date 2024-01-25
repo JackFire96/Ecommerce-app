@@ -50,6 +50,8 @@ public class LoginActivity extends AppCompatActivity {
                         public void onResponse(Call<ProductData[]> call, Response<ProductData[]> response){
                             Log.d("la","al23");
                             MainActivity.bdd.productList = response.body();
+                            startActivity(intent);
+                            finish();
                             //editTextUsername.setText(response.body().getDescription());
                             //Log.d("DescriptionApiProduct",response.body().getDescription());
                         }
@@ -63,8 +65,7 @@ public class LoginActivity extends AppCompatActivity {
                     Log.d("la","al");
                    // Log.d("MyApiTask", "API Response: " + result);
                 // Finish the current activity to prevent going back to it
-                    startActivity(intent);
-                finish();
+
                 // Perform authentication (e.g., send data to a server)
                 // Handle the response accordingly
             }}
