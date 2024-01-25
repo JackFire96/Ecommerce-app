@@ -3,7 +3,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MyApiClient {
-    private static final String BASE_URL = "https://api.escuelajs.co/api/v1/";
+    private static final String BASE_URL = "https://api.escuelajs.co";
+    //private static final String BASE_URL = "https://reqres.in";
 
     public static Retrofit create() {
         Retrofit retrofit = new Retrofit.Builder()

@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
                 // Start the activity
                 //startActivity(intent);
                     Retrofit retrofit = MyApiClient.create();
-                    retrofit.create(MyApiService.class).getProduct("4").enqueue(new Callback<ProductData>(){
+                    retrofit.create(MyApiService.class).getProduct("38").enqueue(new Callback<ProductData>(){
                         @Override
                         public void onResponse(Call<ProductData> call, Response<ProductData> response){
                             Log.d("la","al23");

@@ -5,7 +5,7 @@ import retrofit2.http.Path;
 
 public interface MyApiService {
 
-    @GET("/products/{uid}")
+    @GET("/api/v1/products/{uid}")
     Call<ProductData> getProduct(@Path("uid") String uid); // Example endpoint for getting products
 
     // Add more methods for other API endpoints as needed
