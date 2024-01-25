@@ -58,10 +58,6 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
-
-
-
-
     private void afficherListeProduits() {
         RecyclerView recyclerView = findViewById(R.id.featuredProductsRecyclerView);
         ItemAdapter adapter = new ItemAdapter(cart.getProductList());

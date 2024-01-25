@@ -29,6 +29,7 @@ public class CartActivity extends AppCompatActivity {
     private TextView textCartTotal;
     private Button buttonClear;
     private Button buttonPay;
+    private Button buttonLeave;
     private Cart cart;
 
     @Override
@@ -40,6 +41,7 @@ public class CartActivity extends AppCompatActivity {
         textCartTotal = findViewById(R.id.textCartTotal);
         buttonClear = findViewById(R.id.buttonClear);
         buttonPay = findViewById(R.id.buttonPay);
+        buttonLeave = findViewById(R.id.buttonLeave);
 
         String username = MainActivity.bdd.getUsernameOfLoggedUser();
 
@@ -82,6 +84,13 @@ public class CartActivity extends AppCompatActivity {
                 textCartTotal.setText("Total : " + String.format("%.2f $", cart.getTotal()));
             }
         });
+
+        buttonLeave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goBack();
+            }
+        });
     }
 
     private void popUp(String titlePop, String messagePop) {
@@ -92,6 +101,7 @@ public class CartActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
+                        goBack();
                     }
                 });
 
@@ -104,5 +114,11 @@ public class CartActivity extends AppCompatActivity {
         ProductAdapter adapter = new ProductAdapter(cart.getProductList());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+    }
+
+    private void goBack() {
+        Intent intent = new Intent(CartActivity.this, HomeActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

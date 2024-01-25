@@ -38,7 +38,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Vider le panier"
+            android:text="Vider"
             android:layout_marginEnd="8dp"/>
 
         <Button
@@ -46,7 +46,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Payer"/>
+            android:text="Payer"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/buttonLeave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Quitter"/>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
