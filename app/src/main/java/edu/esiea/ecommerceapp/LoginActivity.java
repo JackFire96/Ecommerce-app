@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
                 String password = editTextPassword.getText().toString();
                 if(MainActivity.bdd.login(username,password)){
                 // Create an Intent to start MainActivity
-                Intent intent = new Intent(LoginActivity.this, CartActivity.class);
+                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
 
                 // Start the activity
                 //
