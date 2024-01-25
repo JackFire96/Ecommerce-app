@@ -12,6 +12,11 @@ public class Cart {
         this.total = 0;
     }
 
+    public Cart(List<Product> productList, double total) {
+        this.productList = productList;
+        this.total = total;
+    }
+
     public double getTotal() {
         return this.total;
     }
@@ -26,5 +31,16 @@ public class Cart {
 
     public void setProductList(List<Product> productList) {
         this.productList = productList;
+    }
+
+    public void clear() {
+        this.productList.clear();
+        this.total = 0.0;
+    }
+
+    public void calculateTotal() {
+        for (Product product : productList) {
+            this.total += product.getPrice();
+        }
     }
 }
