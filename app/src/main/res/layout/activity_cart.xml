@@ -50,6 +50,7 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/productListCart"
         android:layout_width="355dp"
         android:layout_height="488dp"
         android:layout_below="@+id/textCartTotal"
